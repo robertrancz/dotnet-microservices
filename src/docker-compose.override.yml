@@ -27,6 +27,15 @@ services:
     volumes:
       - postgres_data:/var/lib/postgresql/data/
 
+  orderdb:
+    container_name: orderdb
+    environment:
+      SA_PASSWORD: "SwN12345678"
+      ACCEPT_EULA: "Y"
+    restart: always
+    ports:
+      - "1433:1433"
+
   pgadmin:
     container_name: pgadmin
     environment:
@@ -42,8 +51,8 @@ services:
     container_name: portainer
     restart: always
     ports:
-      - "8000:8000"
-      - "9000:9000"
+      - "48000:8000"
+      - "49000:9000"
     volumes:
       - /var/run/docker.sock:/var/run/docker.sock
       - portainer_data:/data
@@ -56,7 +65,7 @@ services:
     depends_on:
       - catalogdb
     ports:
-      - "8008:80"
+      - "48008:80"
 
   basket.api:
     container_name: basket.api
@@ -67,7 +76,7 @@ services:
     depends_on:
       - basketdb
     ports:
-      - "8001:80"
+      - "48001:80"
 
 
   discount.api:
@@ -78,7 +87,7 @@ services:
     depends_on:
       - discountdb
     ports:
-      - "8002:80"
+      - "48002:80"
 
 
   discount.grpc:
@@ -89,4 +98,4 @@ services:
     depends_on:
       - discountdb
     ports:
-      - "8003:80"
+      - "48003:80"
