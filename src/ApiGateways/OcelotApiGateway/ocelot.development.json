@@ -1,5 +1,6 @@
 {
   "Routes": [
+    //Catalog API
     {
       "DownstreamPathTemplate": "/api/v1/Catalog",
       "DownstreamScheme": "http",
@@ -11,7 +12,7 @@
       ],
       "UpstreamPathTemplate": "/Catalog",
       "UpstreamHttpMethod": [ "GET", "POST", "PUT" ],
-      "FileCacheOptions": { "TtlSeconds": 15 }
+      "FileCacheOptions": { "TtlSeconds": 30 }
     },
     {
       "DownstreamPathTemplate": "/api/v1/Catalog/{id}",
